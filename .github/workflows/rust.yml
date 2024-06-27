@@ -124,7 +124,7 @@ jobs:
         with:
           path: '*.tar.gz'
 
-  publish:crates:
+  publish_crates:
     if: github.event_name == 'push' || (github.base_ref == 'main' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     needs: [tag]
@@ -140,7 +140,7 @@ jobs:
           cargo login ${{ secrets.CRATES_IO_API_TOKEN }}
           cargo publish --allow-dirty --verbose
 
-  publish:docker:
+  publish_docker:
     if: github.event_name == 'push' || (github.base_ref == 'main' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     permissions:
