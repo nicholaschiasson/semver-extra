@@ -2,7 +2,7 @@
 
 [![crates.io](https://img.shields.io/crates/v/semver-extra)](https://crates.io/crates/semver-extra)
 
-Extras to help when working with versions, built on top of the [semver](https://crates.io/crates/semver) crate, complete with a CLI tool.
+Helper functions for the [semver](https://crates.io/crates/semver) crate, complete with a CLI tool.
 
 ## CLI
 
