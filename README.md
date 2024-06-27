@@ -24,25 +24,98 @@ A Rust implementation of the https://semver.org/ specification
 Usage: semver [VERSION] [COMMAND]
 
 Commands:
-  increment  [aliases: i]
-  get        [aliases: g]
+  increment  Increment a component of the version, resetting those of lower significance [aliases: i]
+  get        Output a specific component of the version [aliases: g]
   help       Print this message or the help of the given subcommand(s)
 
 Arguments:
-  [VERSION]
-
+  [VERSION]  The input semantic version. If omitted, input is taken from stdin
 
 Options:
-  -h, --help
-          Print help (see a summary with '-h')
-
-  -V, --version
-          Print version
+  -h, --help     Print help
+  -V, --version  Print version
 ```
 
 ### Example
 
+#### Attempt to parse input as a semantic version
+
 ```
+semver hello.world
+error: invalid value 'hello.world' for '[VERSION]': unexpected character 'h' while parsing major version number
+
+For more information, try '--help'.
+```
+
+#### Bump minor version
+
+```
+semver 1.2.3 increment minor
+1.3.0
+```
+
+#### Get prerelease component of version
+
+```
+semver 1.0.0-rc.12 get prerelease
+rc.12
+```
+
+#### Pipe command output as semver input
+
+```
+echo 1.0.2 | semver i
+1.0.3
+```
+
+## Docker
+
+This project also publishes a docker image, exposing the CLI tool.
+
+### Installation
+
+You can pull the image from GitHub's container registry:
+
+```
+docker pull ghcr.io/nicholaschiasson/semver-extra:latest
+```
+
+Or for more convenience, you can reference the image in a docker compose file:
+
+```yaml
+---
+services:
+  semver:
+    image: ghcr.io/nicholaschiasson/semver-extra:latest
+```
+
+For extra convenience, you can create an alias to the docker compose command:
+
+```
+echo 'alias semver="docker compose --file path/to/docker-compose.yml run --rm semver"' >> "${HOME}/.bashrc"
+source "${HOME}"/.bashrc
+```
+
+After that, you should be able to simply run `semver` to invoke the container.
+
+### Usage
+
+The docker image entrypoint is the semver CLI binary itself, meaning the usage is the exact same as indicated above.
+
+### Examples
+
+#### Use docker image directly
+
+```
+docker run ghcr.io/nicholaschiasson/semver-extra 1.2.3 i major
+2.0.0
+```
+
+#### Use docker compose service
+
+```
+docker compose run semver 12.34.56 i
+12.34.57
 ```
 
 ## Development
@@ -136,7 +209,8 @@ the correct rust binaries and libraries. You will also have access in VSCode to 
 
 ## To Do
 
-- [ ] Dockerfile
+- [x] Dockerfile
+- [ ] Tests
 - [ ] Github Action
 - [ ] Support `#![no-std]`
 - [ ] Support prerelease version incrementing

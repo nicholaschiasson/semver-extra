@@ -7,10 +7,13 @@ use semver_extra::{semver::Version, Increment, IncrementLevel};
 
 use clap::{CommandFactory, Parser, Subcommand, ValueEnum};
 
+const BINARY_NAME: &str = "semver";
+
 #[derive(Debug, Parser)]
-#[command(about, author, version, long_about)]
+#[command(name = BINARY_NAME, author, version)]
 /// A Rust implementation of the https://semver.org/ specification
 struct Cli {
+    /// The input semantic version. If omitted, input is taken from stdin.
     #[arg(name = "VERSION")]
     version: Option<Version>,
 
@@ -20,12 +23,14 @@ struct Cli {
 
 #[derive(Debug, Subcommand)]
 enum SemverCommand {
+    /// Increment a component of the version, resetting those of lower significance.
     #[command(visible_alias = "i")]
     Increment {
         #[arg(default_value_t = IncrementLevel::Patch)]
         level: IncrementLevel,
     },
 
+    /// Output a specific component of the version.
     #[command(visible_alias = "g")]
     Get { component: VersionComponent },
 }
