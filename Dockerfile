@@ -14,10 +14,6 @@ RUN cp /src/target/*-musl/release/semver ./
 
 FROM scratch
 
-LABEL org.opencontainers.image.source="https://github.com/nicholaschiasson/semver-extra"
-LABEL org.opencontainers.image.description="A Rust implementation of the https://semver.org/ specification"
-LABEL org.opencontainers.image.licenses="MIT"
-
 COPY --from=builder --chmod=755 /build/semver /
 
 ENTRYPOINT [ "/semver" ]
