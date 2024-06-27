@@ -1,0 +1,29 @@
+[package]
+name = "semver-extra"
+version = "0.1.0"
+authors = ["Nicholas Omer Chiasson <nicholasomerchiasson@gmail.com>"]
+edition = "2021"
+license = "MIT"
+description = """Helper functions for the [semver](https://crates.io/crates/semver) crate, complete with a CLI tool."""
+readme = "README.md"
+homepage = "https://github.com/nicholaschiasson/semver-extra"
+repository = "https://github.com/nicholaschiasson/semver-extra"
+keywords = ["semver", "extra", "helpers", "cli"]
+categories = ["command-line-utilities", "development-tools::build-utils"]
+rust-version = "1.78.0"
+
+[lib]
+name = "semver_extra"
+path = "src/lib.rs"
+
+[[bin]]
+name = "semver"
+path = "src/main.rs"
+
+[badges]
+github = { repository = "nicholaschiasson/semver-extra" }
+maintenance = { status = "passively-maintained" }
+
+[dependencies]
+clap = { version = "4.5.7", features = ["derive"] }
+semver = "1.0.23"
