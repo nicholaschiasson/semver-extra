@@ -1,6 +1,6 @@
 # semver-extra
 
-[![github](https://img.shields.io/badge/github-nicholaschiasson/semver-extra?logo=github)](https://github.com/nicholaschiasson/semver-extra)
+[![github](https://img.shields.io/badge/github-nicholaschiasson/semver--extra-default?logo=github)](https://github.com/nicholaschiasson/semver-extra)
 [![crates.io](https://img.shields.io/crates/v/semver-extra?logo=rust)](https://crates.io/crates/semver-extra)
 [![docs.rs](https://img.shields.io/docsrs/semver-extra?logo=docs.rs)](https://docs.rs/semver-extra)
 [![build](https://github.com/nicholaschiasson/semver-extra/actions/workflows/build.yml/badge.svg)](https://github.com/nicholaschiasson/semver-extra/actions/workflows/build.yml)
