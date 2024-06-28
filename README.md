@@ -1,6 +1,10 @@
 # semver-extra
 
-[![crates.io](https://img.shields.io/crates/v/semver-extra)](https://crates.io/crates/semver-extra)
+[![github](https://img.shields.io/badge/github-nicholaschiasson/semver-extra?logo=github)](https://github.com/nicholaschiasson/semver-extra)
+[![crates.io](https://img.shields.io/crates/v/semver-extra?logo=rust)](https://crates.io/crates/semver-extra)
+[![docs.rs](https://img.shields.io/docsrs/semver-extra?logo=docs.rs)](https://docs.rs/semver-extra)
+[![build](https://github.com/nicholaschiasson/semver-extra/actions/workflows/build.yml/badge.svg)](https://github.com/nicholaschiasson/semver-extra/actions/workflows/build.yml)
+[![license](https://img.shields.io/github/license/nicholaschiasson/semver-extra?logo=opensourceinitiative&logoColor=white)](https://github.com/nicholaschiasson/semver-extra?tab=MIT-1-ov-file#readme)
 
 Helper functions for the [semver](https://crates.io/crates/semver) crate, complete with a CLI tool.
 
