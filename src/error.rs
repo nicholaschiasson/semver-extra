@@ -1,4 +1,5 @@
 use core::fmt::{self, Debug, Display};
+use std::error;
 
 pub(crate) enum ErrorKind {
     InvalidIncrementLevel(String),
@@ -13,6 +14,8 @@ impl Error {
         Self { kind }
     }
 }
+
+impl error::Error for Error {}
 
 impl Display for Error {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
