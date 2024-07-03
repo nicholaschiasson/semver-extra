@@ -11,7 +11,7 @@ format *ARGS:
   cargo format {{ARGS}}
 
 lint *ARGS:
-  cargo lint {{ARGS}}
+  cargo clippy {{ARGS}}
 
 run *ARGS:
   cargo run {{ARGS}}
